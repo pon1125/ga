@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DUNGEON VEIL</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div><div class="eyebrow">A PIXEL ROGUELIKE ADVENTURE</div><h1>DUNGEON <span>VEIL</span></h1></div>
+    <div class="header-right"><span class="status-dot"></span> EXPLORATION MODE</div>
+  </header>
+  <main>
+    <section class="game-panel">
+      <div class="panel-top"><span>FLOOR <b id="floor">01</b></span><span id="objective">OBJECTIVE: FIND THE EXIT</span><span id="seed">DEPTH 01</span></div>
+      <div class="canvas-wrap"><canvas id="game" width="720" height="480" aria-label="ダンジョンゲーム画面"></canvas>
+        <div class="overlay" id="startScreen"><div class="sigil">✦</div><h2>THE DUNGEON AWAITS</h2><p>暗闇の奥へ進み、出口を見つけよう。</p><button id="startBtn">探索を開始</button><small>WASD / 矢印キーで移動　・　SPACEで攻撃</small></div>
+        <div class="overlay hidden" id="endScreen"><div class="sigil">✧</div><h2 id="endTitle">RUN ENDED</h2><p id="endText"></p><button id="retryBtn">もう一度挑戦</button></div>
+      </div>
+      <div class="controls"><span><kbd>W A S D</kbd> 移動</span><span><kbd>↑ ↓ ← →</kbd> 移動</span><span><kbd>SPACE</kbd> 攻撃</span><span><kbd>SHIFT</kbd> ダッシュ</span></div>
+    </section>
+    <aside>
+      <section class="card">
+        <div class="card-title">ADVENTURER <span>01</span></div>
+        <div class="hero-row"><div class="portrait">♟</div><div><strong>WANDERER</strong><small>迷宮の探索者</small></div></div>
+        <div class="stat"><div><span>HP</span><b id="hpText">100 / 100</b></div><div class="bar"><i id="hpBar"></i></div></div>
+        <div class="stat"><div><span>LEVEL</span><b id="levelText">1</b></div><div class="bar xp"><i id="xpBar"></i></div></div>
+        <div class="stat-grid"><div><small>ATTACK</small><b id="atk">12</b></div><div><small>GOLD</small><b id="gold">0</b></div><div><small>DEFEATED</small><b id="kills">0</b></div></div>
+      </section>
+      <section class="card">
+        <div class="card-title">INVENTORY <span id="potionCount">× 2</span></div>
+        <div class="item"><span class="item-icon">✚</span><div><b>回復ポーション</b><small>HPを35回復</small></div><button id="potionBtn">使う</button></div>
+        <div class="item"><span class="item-icon sword">⚔</span><div><b>古びた剣</b><small>攻撃力 +12</small></div><span class="equipped">装備中</span></div>
+      </section>
+      <section class="card log-card">
+        <div class="card-title">ADVENTURE LOG <span>LIVE</span></div>
+        <div id="log"><p>迷宮の入口に足を踏み入れた。</p></div>
+      </section>
+      <div class="tip"><b>TIP</b><p>敵に近づいてSPACEで攻撃。赤く点滅した敵は攻撃の合図。回復ポーションを忘れずに。</p></div>
+    </aside>
+  </main>
+  <footer><span>DUNGEON VEIL</span><span>BUILT FOR THE BRAVE · 2026</span></footer>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
